@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        args = new String[]{"this book is so funny","--capitalize","--reverse", "--horizontal", "--vertical"};
+        args = new String[]{"this book is so funny", "--capitalize", "--reverse", "--compress", "--horizontal", "--vertical"};
         String str = args[0];
         List<String> outputList = new ArrayList<>();
         String[] wordList = str.split(" ", -1);
@@ -13,7 +13,7 @@ public class Main {
             if (args[i].equals("--capitalize")) {
                 for (int j = 0; j < wordList.length; j++) {
                     String word = wordList[j];
-                    String outputWord = word.substring(0,1).toUpperCase() + word.substring(1);
+                    String outputWord = word.substring(0, 1).toUpperCase() + word.substring(1);
                     outputList.add(outputWord);
                 }
             }
@@ -21,6 +21,22 @@ public class Main {
                 List<String> reverseList = new ArrayList<>(outputList);
                 Collections.reverse(reverseList);
                 System.out.println(reverseList);
+            }
+            if (args[i].equals("--compress")) {
+                List<String> compressList = new ArrayList<>();
+                for (int m = 0; m < wordList.length; m++) {
+                    String word = wordList[m];
+                    List<String> strList = new ArrayList<>(Arrays.asList(word.split("")));
+                    String outputWord = "";
+                    for (int l = strList.size() - 1; l > 0; l--) {
+                        if (!strList.get(l).equals(strList.get(l - 1))) {
+                            outputWord = strList.get(l) + outputWord;
+                        }
+                    }
+                    outputWord = strList.get(0) + outputWord;
+                    compressList.add(outputWord);
+                }
+                System.out.println(compressList);
             }
             if (args[i].equals("--horizontal")) {
                 String word = String.join(" ", outputList);
@@ -30,7 +46,6 @@ public class Main {
                 outputList.forEach(System.out::println);
             }
         }
-
 
 
     }
