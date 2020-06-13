@@ -23,8 +23,8 @@ public class Main {
                 System.out.println(compress.getCompressList());
             }
             if (args[i].equals("--horizontal")) {
-                String word = String.join(" ", outputList);
-                System.out.println(word);
+                Horizontal horizontal = new Horizontal(outputList);
+                horizontal.outHorizontal();
             }
             if (args[i].equals("--vertical")) {
                 outputList.forEach(System.out::println);
