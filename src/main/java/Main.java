@@ -11,28 +11,16 @@ public class Main {
         String[] wordList = str.split(" ", -1);
         for (int i = 1; i < args.length; i++) {
             if (args[i].equals("--capitalize")) {
-                Capitalize capitalize = new Capitalize(new ArrayList(Arrays.asList(args[0].split(" "))));
+                Capitalize capitalize = new Capitalize(outputList);
                 System.out.println(capitalize.getCapitalizeList());
             }
             if (args[i].equals("--reverse")) {
-                Reverse reverse = new Reverse(new ArrayList(Arrays.asList(args[0].split(" "))));
+                Reverse reverse = new Reverse(outputList);
                 System.out.println(reverse.getReverseList());
             }
             if (args[i].equals("--compress")) {
-                List<String> compressList = new ArrayList<>();
-                for (int m = 0; m < wordList.length; m++) {
-                    String word = wordList[m];
-                    List<String> strList = new ArrayList<>(Arrays.asList(word.split("")));
-                    String outputWord = "";
-                    for (int l = strList.size() - 1; l > 0; l--) {
-                        if (!strList.get(l).equals(strList.get(l - 1))) {
-                            outputWord = strList.get(l) + outputWord;
-                        }
-                    }
-                    outputWord = strList.get(0) + outputWord;
-                    compressList.add(outputWord);
-                }
-                System.out.println(compressList);
+                Compress compress = new Compress(outputList);
+                System.out.println(compress.getCompressList());
             }
             if (args[i].equals("--horizontal")) {
                 String word = String.join(" ", outputList);
