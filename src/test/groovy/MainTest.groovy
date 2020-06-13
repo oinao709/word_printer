@@ -12,6 +12,10 @@ class MainTest extends Specification {
         Main.main(null)
 
         then:
-        1 * printStream.println("[this book is so funny, --capitalize, --vertical]")
+        1 * printStream.println("This")
+        1 * printStream.println("Book")
+        1 * printStream.println("Is")
+        1 * printStream.println("So")
+        1 * printStream.println("Funny")
     }
 }
