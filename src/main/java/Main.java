@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        args = new String[]{"this book is so funny","--capitalize","--vertical"};
+        args = new String[]{"this book is so funny","--capitalize","--horizontal", "--vertical"};
         String str = args[0];
         List<String> outputList = new ArrayList<>();
         String[] wordList = str.split(" ", -1);
@@ -15,6 +15,10 @@ public class Main {
                     String outputWord = word.substring(0,1).toUpperCase() + word.substring(1);
                     outputList.add(outputWord);
                 }
+            }
+            if (args[i].equals("--horizontal")) {
+                String word = String.join(" ", outputList);
+                System.out.println(word);
             }
             if (args[i].equals("--vertical")) {
                 outputList.forEach(System.out::println);

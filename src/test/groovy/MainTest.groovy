@@ -12,6 +12,8 @@ class MainTest extends Specification {
         Main.main(null)
 
         then:
+        1 * printStream.println("This Book Is So Funny")
+
         1 * printStream.println("This")
         1 * printStream.println("Book")
         1 * printStream.println("Is")
