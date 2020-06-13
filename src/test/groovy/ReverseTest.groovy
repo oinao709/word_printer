@@ -2,14 +2,14 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class CapitalizeTest extends Specification {
-    def getCapitalizeList() {
+class ReverseTest extends Specification {
+    def getReverseList() {
         setup:
         String str = "this book is so funny";
         List<String> list = new ArrayList<>(Arrays.asList(str.split(" ")))
-        Capitalize capitalize = new Capitalize(list);
+        Reverse reverse = new Reverse(list);
 
         expect:
-        capitalize.getCapitalizeList() == ["This", "Book", "Is", "So", "Funny"]
+        reverse.getReverseList() == ["funny", "so", "is", "book", "this"]
     }
 }

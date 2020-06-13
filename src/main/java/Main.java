@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         args = new String[]{"this book is so funny", "--capitalize", "--reverse", "--compress", "--horizontal", "--vertical"};
         String str = args[0];
-        List<String> outputList = new ArrayList<>();
+        List<String> outputList = new ArrayList(Arrays.asList(args[0].split(" ")));
         String[] wordList = str.split(" ", -1);
         for (int i = 1; i < args.length; i++) {
             if (args[i].equals("--capitalize")) {
@@ -15,9 +15,8 @@ public class Main {
                 System.out.println(capitalize.getCapitalizeList());
             }
             if (args[i].equals("--reverse")) {
-                List<String> reverseList = new ArrayList<>(outputList);
-                Collections.reverse(reverseList);
-                System.out.println(reverseList);
+                Reverse reverse = new Reverse(new ArrayList(Arrays.asList(args[0].split(" "))));
+                System.out.println(reverse.getReverseList());
             }
             if (args[i].equals("--compress")) {
                 List<String> compressList = new ArrayList<>();

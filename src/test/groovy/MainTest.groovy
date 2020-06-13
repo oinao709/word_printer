@@ -12,7 +12,8 @@ class MainTest extends Specification {
         Main.main(null)
 
         then:
-        1 * printStream.println(['Funny', 'So', 'Is', 'Book', 'This'])
+        1 * printStream.println(['This', 'Book', 'Is', 'So', 'Funny'])
+        1 * printStream.println(['funny', 'so', 'is', 'book', 'this'])
         1 * printStream.println(['this', 'bok', 'is', 'so', 'funy'])
         1 * printStream.println("This Book Is So Funny")
 
