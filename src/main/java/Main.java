@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -27,10 +26,9 @@ public class Main {
                 horizontal.outHorizontal();
             }
             if (args[i].equals("--vertical")) {
-                outputList.forEach(System.out::println);
+                Vertical vertical = new Vertical(outputList);
+                vertical.outVertical();
             }
         }
-
-
     }
 }
