@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        args = new String[]{"this book is so funny","--capitalize","--horizontal", "--vertical"};
+        args = new String[]{"this book is so funny","--capitalize","--reverse", "--horizontal", "--vertical"};
         String str = args[0];
         List<String> outputList = new ArrayList<>();
         String[] wordList = str.split(" ", -1);
@@ -15,6 +16,11 @@ public class Main {
                     String outputWord = word.substring(0,1).toUpperCase() + word.substring(1);
                     outputList.add(outputWord);
                 }
+            }
+            if (args[i].equals("--reverse")) {
+                List<String> reverseList = new ArrayList<>(outputList);
+                Collections.reverse(reverseList);
+                System.out.println(reverseList);
             }
             if (args[i].equals("--horizontal")) {
                 String word = String.join(" ", outputList);
