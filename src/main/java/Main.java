@@ -11,11 +11,8 @@ public class Main {
         String[] wordList = str.split(" ", -1);
         for (int i = 1; i < args.length; i++) {
             if (args[i].equals("--capitalize")) {
-                for (int j = 0; j < wordList.length; j++) {
-                    String word = wordList[j];
-                    String outputWord = word.substring(0, 1).toUpperCase() + word.substring(1);
-                    outputList.add(outputWord);
-                }
+                Capitalize capitalize = new Capitalize(new ArrayList(Arrays.asList(args[0].split(" "))));
+                System.out.println(capitalize.getCapitalizeList());
             }
             if (args[i].equals("--reverse")) {
                 List<String> reverseList = new ArrayList<>(outputList);
