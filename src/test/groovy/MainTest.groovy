@@ -3,24 +3,32 @@ import spock.lang.Unroll
 
 @Unroll
 class MainTest extends Specification {
-    def "test1"() {
+    def "test_args0"() {
         setup:
         PrintStream printStream = Mock()
         System.out = printStream
 
         when:
-        Main.main(null)
+        Main.main("this book is so funny")
 
         then:
-        1 * printStream.println(['This', 'Book', 'Is', 'So', 'Funny'])
-        1 * printStream.println(['funny', 'so', 'is', 'book', 'this'])
-        1 * printStream.println(['this', 'bok', 'is', 'so', 'funy'])
-        1 * printStream.println("This Book Is So Funny")
+        1 * printStream.println(["this", "book", "is", "so", "funny"])
+    }
 
-        1 * printStream.println("This")
-        1 * printStream.println("Book")
-        1 * printStream.println("Is")
+    def "test_all"() {
+        setup:
+        PrintStream printStream = Mock()
+        System.out = printStream
+
+        when:
+        Main.main("this book is so funny", "--capitalize", "--reverse", "--compress", "--horizontal", "--vertical")
+
+        then:
+        1 * printStream.println("Funy So Is Bok This")
+        1 * printStream.println("Funy")
         1 * printStream.println("So")
-        1 * printStream.println("Funny")
+        1 * printStream.println("Is")
+        1 * printStream.println("Bok")
+        1 * printStream.println("This")
     }
 }
