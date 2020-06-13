@@ -1,3 +1,4 @@
+import print.Vertical
 import spock.lang.Specification
 import spock.lang.Unroll
 

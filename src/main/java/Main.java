@@ -1,3 +1,9 @@
+import convert.Capitalize;
+import convert.Compress;
+import convert.Reverse;
+import print.Horizontal;
+import print.Vertical;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
