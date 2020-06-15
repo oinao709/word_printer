@@ -6,11 +6,16 @@ import spock.lang.Unroll
 class CompressTest extends Specification {
     def getCompressList() {
         setup:
-        String str = "this book is so funny";
+        String str = input
         List<String> list = new ArrayList<>(Arrays.asList(str.split(" ")))
         Compress compress = new Compress(list);
 
         expect:
-        compress.getCompressList() == ["this", "bok", "is", "so", "funy"]
+        compress.getCompressList() == exp
+
+        where:
+        input                   || exp
+        "this book is so funny" || ["this", "bok", "is", "so", "funy"]
+        "testttetmm"            || ["testetm"]
     }
 }
