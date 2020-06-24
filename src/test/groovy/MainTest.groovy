@@ -12,19 +12,30 @@ class MainTest extends Specification {
         Main.main("this book is so funny")
 
         then:
-        1 * printStream.println(["this", "book", "is", "so", "funny"])
+        thrown(RuntimeException)
     }
 
-    def "test_all"() {
+    def "test_horizontal"() {
         setup:
         PrintStream printStream = Mock()
         System.out = printStream
 
         when:
-        Main.main("this book is so funny", "--capitalize", "--reverse", "--compress", "--horizontal", "--vertical")
+        Main.main("this book is so funny", "--capitalize", "--reverse", "--compress", "--horizontal")
 
         then:
         1 * printStream.println("Funy So Is Bok This")
+    }
+
+    def "test_vertical"() {
+        setup:
+        PrintStream printStream = Mock()
+        System.out = printStream
+
+        when:
+        Main.main("this book is so funny", "--capitalize", "--reverse", "--compress", "--vertical")
+
+        then:
         1 * printStream.println("Funy")
         1 * printStream.println("So")
         1 * printStream.println("Is")

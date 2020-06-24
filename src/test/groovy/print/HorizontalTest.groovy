@@ -8,20 +8,13 @@ class HorizontalTest extends Specification {
     List<String> list = new ArrayList<>(Arrays.asList(str.split(" ")))
     Horizontal horizontal = new Horizontal(list);
 
-    def getHorizotal() {
-        setup:
-
-        expect:
-        horizontal.getHorizontal() == "this book is so funny"
-    }
-
     def outHorizontal() {
         setup:
         PrintStream printStream = Mock()
         System.out = printStream
 
         when:
-        horizontal.outHorizontal()
+        horizontal.outPrinter()
 
         then:
         1 * printStream.println("this book is so funny")

@@ -14,7 +14,7 @@ class VerticalTest extends Specification {
         System.out = printStream
 
         when:
-        vertical.outVertical()
+        vertical.outPrinter()
 
         then:
         1 * printStream.println("this")
